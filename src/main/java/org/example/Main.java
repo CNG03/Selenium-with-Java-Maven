@@ -26,11 +26,9 @@ public class Main {
 
 
         // Đợi một chút để trang tìm kiếm được tải
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
+        Thread.sleep(3000);
+
 
         // 3. Tìm và nhấp vào kết quả đầu tiên trong danh sách kết quả
         WebElement firstResult = driver.findElement(By.xpath("//div[@class='g']//a/h3"));
@@ -46,11 +44,8 @@ public class Main {
         while (scrollHeight < documentHeight) {
             scrollHeight += windowHeight;
             js.executeScript("window.scrollTo(0, " + scrollHeight + ");");
-            try {
-                Thread.sleep(1000); // Chờ 1 giây giữa mỗi lần cuộn
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
+            Thread.sleep(1000); // Chờ 1 giây giữa mỗi lần cuộn
         }
         // Tìm thẻ div có class là "footer-right"
         WebElement footerDiv = driver.findElement(By.className("footer-right"));
@@ -60,8 +55,6 @@ public class Main {
             // 5. Click button Home o cuoi trang
             links.get(0).click();
             System.out.println("Đã click vào liên kết đầu tiên trong div.");
-        } else {
-            System.out.println("Không tìm thấy liên kết trong div.");
         }
 
         // 6. Click button Selenium o dau trang
@@ -121,11 +114,7 @@ public class Main {
         while (scrollHeight < documentHeight) {
             scrollHeight += windowHeight;
             js.executeScript("window.scrollTo(0, " + scrollHeight + ");");
-            try {
-                Thread.sleep(1000); // Chờ 1 giây giữa mỗi lần cuộn
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            Thread.sleep(1000);
         }
 
         driver.quit();
